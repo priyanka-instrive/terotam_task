@@ -31,7 +31,6 @@ const registerUser = async (req, res) => {
 };
 
 const signin = async (req, res) => {
-  console.log("1111111111");
   const { email, password } = req.body;
   const user = await service.findUser(email);
   if (!user) {

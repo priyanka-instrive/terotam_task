@@ -3,7 +3,6 @@ const menuService = require("./service");
 exports.addCategory = async (req, res) => {
   try {
     const categoryData = req.body;
-    console.log("categoryData===>>>", categoryData);
     const newCategory = await menuService.createCategory(categoryData);
     return res.status(201).json({
       message: "Category created successfully",
@@ -19,7 +18,7 @@ exports.addItem = async (req, res) => {
     const categoryId = req.params.categoryId;
     const itemData = req.body;
     if (req.file) {
-      itemData.photo = req.file.path; // Save the file path to itemData
+      itemData.photo = req.file.path;
     }
     const newItem = await menuService.createItem(categoryId, itemData);
     return res
